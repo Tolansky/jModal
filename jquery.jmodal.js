@@ -68,7 +68,7 @@
         {
             //Adjust the popup object's width based on settings
             $("#" + settings.newElementID).css("width",settings.width);
-            $("#" + settings.newElementID).css("marginLeft",0-(settings.width/2));            
+            $("#" + settings.newElementID).css("marginLeft",-20-(settings.width/2));            
         }
       
         

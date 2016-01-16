@@ -1,3 +1,7 @@
+html, body {
+  width: 100%;
+  overflow: hidden; }
+
 body {
   background: white;
   color: #333; }
@@ -6,7 +10,7 @@ header {
   text-align: center;
   font-family: 'Orbitron', sans-serif;
   font-size: 40px;
-  margin-top: 40px; }
+  margin-top: 20px; }
   header .subHeader {
     font-size: 14px;
     color: #777; }
@@ -25,5 +29,78 @@ main {
   text-align: justify;
   font-weight: 400;
   color: #555; }
+
+.button {
+  display: inline-block;
+  width: 140px;
+  padding: 5px;
+  margin: 10px;
+  cursor: pointer;
+  line-height: 20px;
+  background: #27ae60;
+  text-decoration: none;
+  color: #FFF;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: 200;
+  vertical-align: middle; }
+  .button span {
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle; }
+
+.bigButton {
+  height: 50px; }
+  .bigButton span {
+    height: 50px;
+    display: table-cell;
+    vertical-align: middle; }
+
+.button:hover {
+  background: #2ecc71; }
+
+code {
+  display: block;
+  background: #F9F9F9;
+  width: 90%;
+  font-size: 14px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: #DDD 1px solid; }
+
+section {
+  padding-top: 10px;
+  padding-bottom: 15px;
+  border-bottom: 1px #CDCDCD solid; }
+
+section:before {
+  content: attr(title);
+  font-weight: bold;
+  display: block;
+  padding-bottom: 10px; }
+
+footer {
+  position: relative;
+  position: absolute;
+  bottom: 5px;
+  width: 200px;
+  left: 50%;
+  margin-left: -100px;
+  padding: 10px;
+  border-top: 1px #CDCDCD solid;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  color: #666; }
+  footer a, footer a:visited {
+    color: #666; }
+
+.stats table tr td:nth-child(1) {
+  font-weight: bold; }
+.stats table tr td:nth-child(2) {
+  padding-left: 10px; }
+
+.customClass {
+  background: red; }
 
 /*# sourceMappingURL=page.css.map */
