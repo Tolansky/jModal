@@ -76,11 +76,11 @@
         if (settings.closeOnOverlayClick)
         {
             // Close action on overlay            
-            $("#" + settings.overlayID).click(function(){closeModal("#" + settings.newElementID, settings.fadeTime);})
+            $("#" + settings.overlayID).click(function(){$().closeModal({overlayID: "#" + settings.newElementID, popupID: "#" + settings.TL_ModalFront, fadeTime: settings.fadeTime});})
         }
         
         //Close when clicking the close button
-        $("#TL_ClosePopup").click(function(){closeModal("#" + settings.newElementID, settings.fadeTime);})
+        $("#TL_ClosePopup").click(function(){$().closeModal({overlayID: "#" + settings.newElementID, popupID: "#" + settings.TL_ModalFront, fadeTime: settings.fadeTime});})
         
                 
         //////////////////////////////////////////////////////////////////////////////////////////////
@@ -88,7 +88,32 @@
         //////////////////////////////////////////////////////////////////////////////////////////////
         //Fade the overlay in, then the front popup
         $("#" + settings.overlayID).fadeIn(settings.fadeTime, function(){$("#" + settings.newElementID).fadeIn(settings.fadeTime);});
-    }; 
+    };
+    
+    $.fn.closeModal = function( options )
+    {
+        //The default settings, can be overridden
+        var settings = $.extend(
+          {
+            overlayID: "TL_ModalBack",      // id to use for the overlay element - usually not necessary to change
+            popupID: "TL_ModalFront",       // id to use for the modal element - usually not necessary to change
+            fadeTime: 400                   // time out
+          }, options );
+        
+        // first fadeout the popup
+        $(settings.popupID).fadeOut(settings.fadeTime, function()
+        {
+            // destroy the newly created popup
+            $(settings.popupID).remove();
+        
+            // once the front is faded (and possibly destroyed) fade out the black
+            $("#" + settings.overlayID).fadeOut(settings.fadeTime,function()
+                                            {
+            // once the black is faded out, destroy it (so it can be created again later)
+            $("#" + settings.overlayID).remove();
+        })
+      });
+    };
 }( jQuery ));
 
 
@@ -96,24 +121,6 @@
 
 
 
-//close the modal - this is called by clicking the close button or on the overlay
-function closeModal(id, fadeTime)
-{
-  // first fadeout the popup
-  $(id).fadeOut(fadeTime, function()
-                {
-
-    // destroy the newly created popup
-    $(id).remove();
-
-    // once the front is faded (and possibly destroyed) fade out the black
-    $("#TL_ModalBack").fadeOut(fadeTime,function()
-                                    {
-      // once the black is faded out, destroy it (so it can be created again later)
-      $("#TL_ModalBack").remove();
-    })
-  });
-}
 
 
     $("<style type='text/css'>                                                      \
@@ -135,6 +142,7 @@ function closeModal(id, fadeTime)
         position: fixed;                                                            \
         top: 15%;                                                                   \
         left: 50%;                                                                  \
+        max-width: 100%;                                                            \
                                                                                     \
         padding:20px;                                                               \
                                                                                     \
