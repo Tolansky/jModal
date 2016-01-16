@@ -18,6 +18,9 @@
             ///////////////////
             // Appearance
             width:400,                      // width of the popup
+            addonClasses: '',               // any additional classes to add to the modal popup
+            borderRadius: '4px',            // border radius for the modal popup
+            
             
             ///////////////////
             //Behaviour
@@ -56,7 +59,7 @@
             $("body").append("<div id='" + settings.overlayID + "' class='TL_overlayStyle'></div>");                 // overlay
         }
         
-        $("body").append("<div id='"+ settings.newElementID + "' class='TL_newObjectStyle'>" + popupContents + "</div>");  // popup object
+        $("body").append("<div id='"+ settings.newElementID + "' style='border-radius: " + settings.borderRadius + "' class='TL_newObjectStyle " + settings.addonClasses + "'>" + popupContents + "</div>");  // popup object
         
         
         //////////////////////////////////////////////////////////////////////////////////////////////
@@ -76,11 +79,11 @@
         if (settings.closeOnOverlayClick)
         {
             // Close action on overlay            
-            $("#" + settings.overlayID).click(function(){$().closeModal({overlayID: "#" + settings.newElementID, popupID: "#" + settings.TL_ModalFront, fadeTime: settings.fadeTime});})
+            $("#" + settings.overlayID).click(function(){$().closeModal({overlayID: settings.overlayID, popupID: settings.newElementID, fadeTime: settings.fadeTime});})
         }
         
         //Close when clicking the close button
-        $("#TL_ClosePopup").click(function(){$().closeModal({overlayID: "#" + settings.newElementID, popupID: "#" + settings.TL_ModalFront, fadeTime: settings.fadeTime});})
+        $("#TL_ClosePopup").click(function(){$().closeModal({overlayID: settings.overlayID, popupID: settings.newElementID, fadeTime: settings.fadeTime});})
         
                 
         //////////////////////////////////////////////////////////////////////////////////////////////
@@ -99,12 +102,12 @@
             popupID: "TL_ModalFront",       // id to use for the modal element - usually not necessary to change
             fadeTime: 400                   // time out
           }, options );
-        
+                
         // first fadeout the popup
-        $(settings.popupID).fadeOut(settings.fadeTime, function()
+        $("#" + settings.popupID).fadeOut(settings.fadeTime, function()
         {
             // destroy the newly created popup
-            $(settings.popupID).remove();
+            $("#" + settings.popupID).remove();
         
             // once the front is faded (and possibly destroyed) fade out the black
             $("#" + settings.overlayID).fadeOut(settings.fadeTime,function()
@@ -151,7 +154,6 @@
         font-family: 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;            \
         font-size: 14px;                                                            \
         text-align:justify;                                                         \
-        border-radius:3px;                                                          \
         box-shadow: 7px 7px 15px #333;                                              \
 \
         display:none;                                                               \

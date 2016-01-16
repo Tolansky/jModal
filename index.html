@@ -1,20 +1,41 @@
-<html>
+<!DOCTYPE html>
     <head>
-        <!-- Include whatever   -->
+    
+        <!-- Usual compatibility stuff -->    
+        <meta charset="UTF-8">
+        
+        <!-- Title -->
+        <title>jModal - a plugin for jQuery</title>
+        
+        <!-- Formatting -->
+        <link rel="stylesheet" href="page.css">
+        <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Orbitron:400,500,700' rel='stylesheet' type='text/css'>
+        
+        
+        <!-- Include whatever scripts necessary -->
         <script src="../jquery-2.1.4.min.js"></script>
         <script src="modal.js"></script>
-
     </head>
+    
     <body>
         
         <!--GitHub ribbon-->
         <a href="https://github.com/tolansky/jModal"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
         
+        <!-- Header -->
+        <header>jModal</header>
         
-        <div id="test">this one</div>
-
-
+        <!-- Main -->
+        <main>
+            <div class="description">
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+            </div>            
+        </main>
+        
+        <!-- Footer -->
+        <footer></footer>
+        
     
-        <script>$().modal({content:'including some <b>basic html</b'});</script>
+        <script>$().modal({content:'including some <b>basic html</b', addonClasses: 'testClass'});</script>
     </body>
 </html>
