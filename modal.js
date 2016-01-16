@@ -8,6 +8,8 @@
         var settings = $.extend(
           {
             // These are the defaults.
+            target: this,
+            message: '',
             pullFromDiv: true,
             fadeTime: 400,
             width:400,
@@ -22,9 +24,9 @@
       
         //Define the contents of the popup
         var popupContents = "";
-        if (settings.addCloseButton) { popupContents += closeButton;            }   // add a close button
-        if (!settings.pullFromDiv)   { popupContents += this;                   }   // add the passed in string if applicable
-        if (settings.pullFromDiv)    { popupContents += $(this).html();         }   // add html from the passed in object if applicable
+        if (settings.addCloseButton) { popupContents += closeButton;                    }   // add a close button
+        if (settings.message != '')   { popupContents += settings.message;               }   // add the passed in string if applicable
+        if (settings.message == '')    { popupContents += $(settings.target).html();      }   // add html from the passed in object if applicable
       
       
         console.log(popupContents);
