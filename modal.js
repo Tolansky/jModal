@@ -7,24 +7,32 @@
         //The default settings, can be overridden
         var settings = $.extend(
           {
-            // Core contents.
-            target: this,
-            content: '',
+            ///////////////////
+            // Core contents
+            target: this,                   // OPTIONAL - pull contents from the jQuery identified element
+            content: '',                    // OPTIONAL - put contents in manually
             
+            // NOTE - content overrules target if they both have values.
+            
+            
+            ///////////////////
             // Appearance
-            width:400,
+            width:400,                      // width of the popup
             
+            ///////////////////
             //Behaviour
-            fadeTime: 400,            
-            addCloseButton: true,
-            closeOnOverlayClick: true,
-            showOverlay: true,
+            fadeTime: 400,                  // fade in/out time
+            addCloseButton: true,           // Add a close button or not
+            closeOnOverlayClick: true,      // close modal on click of the overlay
+            showOverlay: true,              // show the overlay (click away doesn't work if not)
             
+            ///////////////////
             //IDs
-            overlayID: "TL_ModalBack",
-            newElementID: "TL_ModalFront"
+            overlayID: "TL_ModalBack",      // id to use for the overlay element - usually not necessary to change
+            newElementID: "TL_ModalFront"   // id to use for the modal element - usually not necessary to change
           }, options );
 
+          
         //////////////////////////////////////////////////////////////////////////////////////////////
         // Build the contents
         //////////////////////////////////////////////////////////////////////////////////////////////
