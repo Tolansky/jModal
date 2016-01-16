@@ -7,18 +7,28 @@
         //The default settings, can be overridden
         var settings = $.extend(
           {
-            // These are the defaults.
+            // Core contents.
             target: this,
             content: '',
-            pullFromDiv: true,
-            fadeTime: 400,
+            
+            // Appearance
             width:400,
+            
+            //Behaviour
+            fadeTime: 400,            
             addCloseButton: true,
+            closeOnOverlayClick: true,
+            showOverlay: true,
+            
+            //IDs
             overlayID: "TL_ModalBack",
             newElementID: "TL_ModalFront"
           }, options );
 
-  
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        // Build the contents
+        //////////////////////////////////////////////////////////////////////////////////////////////
+
         //Define the html for the close button that might be added to the popup
         var closeButton = "<div align='right' width='100%' style='color:black; font-size:10px'><span id='TL_ClosePopup'>CLOSE</span></div><br>";
       
@@ -29,22 +39,45 @@
         if (settings.content == '')    { popupContents += $(settings.target).html();    }   // add html from the passed in object if applicable
       
       
-        console.log(popupContents);
       
+        //////////////////////////////////////////////////////////////////////////////////////////////
         // Add the overlay and popup objects into the body
-        $("body").append("<div id='" + settings.overlayID + "' class='TL_overlayStyle'></div>");                 // overlay
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        if (settings.showOverlay)
+        {
+            $("body").append("<div id='" + settings.overlayID + "' class='TL_overlayStyle'></div>");                 // overlay
+        }
+        
         $("body").append("<div id='"+ settings.newElementID + "' class='TL_newObjectStyle'>" + popupContents + "</div>");  // popup object
         
+        
+        //////////////////////////////////////////////////////////////////////////////////////////////
         // settings adjustments
+        //////////////////////////////////////////////////////////////////////////////////////////////
         {
             //Adjust the popup object's width based on settings
             $("#" + settings.newElementID).css("width",settings.width);
             $("#" + settings.newElementID).css("marginLeft",0-(settings.width/2));            
         }
       
+        
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        //Event handling
+        //////////////////////////////////////////////////////////////////////////////////////////////
         //Add event handlers to the overlay and close button (which close them both)
-        $("#" + settings.overlayID + ",#TL_ClosePopup").click(function(){closeModal("#" + settings.newElementID, settings.fadeTime);})
-      
+        if (settings.closeOnOverlayClick)
+        {
+            // Close action on overlay            
+            $("#" + settings.overlayID).click(function(){closeModal("#" + settings.newElementID, settings.fadeTime);})
+        }
+        
+        //Close when clicking the close button
+        $("#TL_ClosePopup").click(function(){closeModal("#" + settings.newElementID, settings.fadeTime);})
+        
+                
+        //////////////////////////////////////////////////////////////////////////////////////////////
+        //Appear!
+        //////////////////////////////////////////////////////////////////////////////////////////////
         //Fade the overlay in, then the front popup
         $("#" + settings.overlayID).fadeIn(settings.fadeTime, function(){$("#" + settings.newElementID).fadeIn(settings.fadeTime);});
     }; 
