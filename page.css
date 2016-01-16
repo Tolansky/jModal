@@ -7,11 +7,17 @@ header {
   font-family: 'Orbitron', sans-serif;
   font-size: 40px;
   margin-top: 40px; }
+  header .subHeader {
+    font-size: 14px;
+    color: #777; }
+    header .subHeader a {
+      color: #77F; }
 
 main {
   position: absolute;
-  width: 50%;
-  left: 25%;
+  width: 600px;
+  left: 50%;
+  margin-left: -300px;
   margin-top: 20px;
   font-family: 'Lato', sans-serif;
   font-size: 16px;

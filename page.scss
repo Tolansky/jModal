@@ -10,15 +10,27 @@ header
     font-family: 'Orbitron', sans-serif;
     font-size:40px;
     margin-top:40px;
+    
+    .subHeader
+    {
+        font-size:14px;
+        color:#777;
+        
+        a
+        {
+            color:#77F;   
+        }
+    }
 }
 
 main
 {
     position:absolute;
     
-    $width:50%;
+    $width:600px;
     width:$width;
-    left:(100%-$width)/2;
+    left:50%;
+    margin-left:-300px;
     margin-top:20px;
     
     font-family: 'Lato', sans-serif;

@@ -14,21 +14,21 @@
         
         <!-- Include whatever scripts necessary -->
         <script src="../jquery-2.1.4.min.js"></script>
-        <script src="modal.js"></script>
+        <script src="jquery.jmodal.js"></script>
     </head>
     
     <body>
         
         <!--GitHub ribbon-->
-        <a href="https://github.com/tolansky/jModal"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+        <a target="_blank" href="https://github.com/tolansky/jModal"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
         
         <!-- Header -->
-        <header>jModal</header>
+        <header>jModal<div class="subHeader">from <a target="_blank" href="http://www.tolansky.com">Tolansky</a></div></header>
         
         <!-- Main -->
         <main>
             <div class="description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                jModal is a small jQuery plugin for modal popups, released freely under the Apache license. It is a single <i>.js</i> file that applies appropriate styling at runtime, and in the minified format is ~5kb.<br><br>Installation involves only referencing the <i>.js</i> file  (<a target="_blank" href="https://github.com/tolansky/jModal">available on GitHub</a>).
             </div>            
         </main>
         
@@ -36,6 +36,6 @@
         <footer></footer>
         
     
-        <script>$().modal({content:'including some <b>basic html</b', addonClasses: 'testClass'});</script>
+        <script>$().modal({content:'including some <b>basic html</b'});</script>
     </body>
 </html>

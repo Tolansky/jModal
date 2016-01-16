@@ -127,7 +127,7 @@
 
 
     $("<style type='text/css'>                                                      \
-    .TL_overlayStyle                                                                   \
+    .TL_overlayStyle                                                                \
     {                                                                               \
         z-index: 1004;                                                              \
         position:fixed;                                                             \
@@ -139,7 +139,7 @@
         display: none;                                                              \
     }                                                                               \
     \
-    .TL_newObjectStyle                                                                 \
+    .TL_newObjectStyle                                                              \
     {                                                                               \
         z-index: 1005;                                                              \
         position: fixed;                                                            \
@@ -161,13 +161,13 @@
     }                                                                               \
     \
     \
-    #TL_ClosePopup                                                             \
+    #TL_ClosePopup                                                                  \
     {                                                                               \
         padding:3px 5px 3px 5px;                                                    \
         border-radius:5px;                                                          \
         cursor:pointer;                                                             \
     }                                                                               \
-    #TL_ClosePopup:hover                                                       \
+    #TL_ClosePopup:hover                                                            \
     {                                                                               \
         color:white;                                                                \
         background:#555;                                                            \
