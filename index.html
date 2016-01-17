@@ -28,7 +28,7 @@
         <!-- Header -->
         <header>
             jModal
-            <div class="subHeader">from <a target="_blank" href="http://www.tolansky.com">Tolansky</a></div>
+            <div class="subHeader">from <a target="_blank" href="http://www.tolansky.com">Tolansky</a></div>            
         </header>
         
         <!-- Main -->
@@ -58,7 +58,7 @@
                 
                 Then call the function and pass in the text you want to show:
                 <pre><code data-language="javascript">$().modal({content:'Pass text in directly'});   </code></pre>                    
-                OR use a hidden element to store the HTML you want included:
+                OR use another element to store the HTML you want included:
                 <pre><code data-language="javascript">$('#hiddenDivYum').modal();   // use the contents from the hidden div</code></pre>
                  
                  
@@ -83,7 +83,7 @@ $('#hiddenDivYum').modal(
     width:400,                  // width of the popup
     addonClasses: '',           // any additional classes to add to the popup
     borderRadius: '4px',        // border radius for the popup
-    
+    top: '15%',                 // distance from the top when it appears    
     
     ///////////////////
     //Behaviour
@@ -96,7 +96,7 @@ $('#hiddenDivYum').modal(
             </section >
             
             
-            <section class="stats" title="Stats:">
+            <section class="stats" title="Stats:" style="display:none;">
                 <table >
                     <tr>
                         <td>Files required for installation:</td>
@@ -113,7 +113,22 @@ $('#hiddenDivYum').modal(
                 </table>
             </section >
         
-        <footer>&#169; <a href="http://www.tolansky.com" target="_new">Tolansky</a></footer>
+        <footer>
+            <table width=100%>
+                <tr>
+                    <td style="text-align:left; float:left;">
+                        
+                        <a href="https://twitter.com/TolanskyLabs" class="twitter-follow-button" data-show-count="false" data-dnt="true">Follow @TolanskyLabs</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                    </td>
+                    <td style="text-align:right;">
+                        <span class="copyright"><a href="http://www.tolansky.com" target="_new">&#169; Tolansky</a></span>
+                    </td>
+                </tr>
+            </table>
+            
+            
+        </footer>
         </main>
         
         <!-- Footer -->
@@ -170,7 +185,7 @@ would have made any woman respect him.</p>
        </div> 
     
     <div style="display:none" id="hiddenDivCustom">
-        Weird custom setup!
+        Ugly custom setup!
         <br><br>
         This demo just adds a user made class by adding:
         <br>

@@ -114,7 +114,7 @@ footer {
 .customClass {
   background: #16a085 !important;
   color: white !important;
-  top: 40% !important;
+  top: 30% !important;
   border-radius: 100px !important;
   text-align: center !important;
   padding-bottom: 200px !important;
@@ -134,5 +134,7 @@ footer {
     transform: rotate(-5deg); }
   100% {
     transform: rotate(3deg); } }
+.copyright a, .copyright a:visited {
+  color: #666; }
 
 /*# sourceMappingURL=page.css.map */
