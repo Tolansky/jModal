@@ -20,7 +20,7 @@
             width:400,                      // width of the popup
             addonClasses: '',               // any additional classes to add to the modal popup
             borderRadius: '4px',            // border radius for the modal popup
-            
+            top: '15%',                     // distance from the top when it appears
             
             ///////////////////
             //Behaviour
@@ -46,8 +46,8 @@
         //Define the contents of the popup
         var popupContents = "";
         if (settings.addCloseButton) { popupContents += closeButton;                    }   // add a close button
-        if (settings.content != '')   { popupContents += settings.content;              }   // add the passed in string if applicable
-        if (settings.content == '')    { popupContents += $(settings.target).html();    }   // add html from the passed in object if applicable
+        if (settings.content != '')   { popupContents += "<span>" + settings.content + "</span>";              }   // add the passed in string if applicable
+        if (settings.content == '')    { popupContents += "<span>" + $(settings.target).html() + "</span>";    }   // add html from the passed in object if applicable
       
       
       
@@ -68,6 +68,7 @@
         {
             //Adjust the popup object's width based on settings
             $("#" + settings.newElementID).css("width",settings.width);
+            $("#" + settings.newElementID).css("top",settings.top);
             $("#" + settings.newElementID).css("marginLeft",-20-(settings.width/2));            
         }
       
@@ -143,9 +144,8 @@
     {                                                                               \
         z-index: 1005;                                                              \
         position: fixed;                                                            \
-        top: 15%;                                                                   \
         left: 50%;                                                                  \
-        max-width: 100%;                                                            \
+        max-width: 90%;                                                            \
                                                                                     \
         padding:20px;                                                               \
                                                                                     \
@@ -157,7 +157,6 @@
         box-shadow: 7px 7px 15px #333;                                              \
 \
         display:none;                                                               \
- \
     }                                                                               \
     \
     \

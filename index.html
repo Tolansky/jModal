@@ -10,11 +10,14 @@
         <!-- Formatting -->
         <link rel="stylesheet" href="page.css">
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300|Orbitron:400,500,700' rel='stylesheet' type='text/css'>
-        
+        <link href="rainbow/themes/github.css" rel="stylesheet" type="text/css">
         
         <!-- Include whatever scripts necessary -->
         <script src="../jquery-2.1.4.min.js"></script>
         <script src="jquery.jmodal.js"></script>
+        <script src="rainbow/rainbow.min.js"></script>
+        <script src="rainbow/language/generic.js"></script>
+        <script src="rainbow/language/javascript.js"></script>
     </head>
     
     <body>
@@ -31,7 +34,9 @@
         <!-- Main -->
         <main>
             <section class="description">
-                jModal is a small jQuery plugin for modal popups, released freely under the Apache license. It is a single <i>.js</i> file that applies appropriate styling at runtime, and in the minified format is ~5kb.
+                jModal is a small jQuery plugin for customisable modal popups, released freely under the Apache license.
+                <br><br>
+                When run, a modal element is added to the page that pulls in content as instructed; its appearance is generated based on a set of predefined options <b>and</b> can be passed any user-defined custom CSS classes for additional theming (see examples below).
             </section>
             
             
@@ -40,52 +45,79 @@
                     
                     <a class="button bigButton" onClick="$('#hiddenDivYum').modal();"><span>YUM YUM?</span></a>
                     <a class="button bigButton" onClick="$('#hiddenDivWide').modal({width:'1000'});"><span>HAPPY THOUGHTS</span></a>
-                    <a class="button bigButton" onClick="$('#hiddenDivWide').modal({width:'1000'});"><span>CUSTOM class</span></a>
+                    <a class="button bigButton" onClick="$('#hiddenDivCustom').modal({addonClasses:'customClass', addCloseButton:false});"><span>NO ACCOUNTING FOR TASTE</span></a>
                     <!--<code>$("#hiddenDiv").modal();</code>-->
                 </center>        
             </section>
             
             
-            <section class="usage" title="Usage:">
-                <code>
-                    &lt;script src="jquery.jmodal.min.js"&gt;<br>
-                    $("#hiddenDiv").modal();
+            <section class="basic" title="Basic Usage:">
                 
-                </code>
+                Install by referencing the js file:
+                <pre><code data-language="html">&lt;script src='scripts/jquery.jmodal.js'&gt;&lt;/script&gt;</code></pre>
+                
+                Then call the function and pass in the text you want to show:
+                <pre><code data-language="javascript">$().modal({content:'Pass text in directly'});   </code></pre>                    
+                OR use a hidden element to store the HTML you want included:
+                <pre><code data-language="javascript">$('#hiddenDivYum').modal();   // use the contents from the hidden div</code></pre>
+                 
+                 
             </section >
             
+            <section class="advanced" title="Customisation Options:">
+                <pre><code data-language="javascript">
+// Values below represent default values (as of initial release)
+
+$('#hiddenDivYum').modal(
+{
+    ///////////////////
+    // Core contents
+    target: this,               // OPTIONAL - pull contents from element
+    content: '',                // OPTIONAL - put contents in manually
+    
+    // NOTE - content overrules target if they both have values.
+    
+    
+    ///////////////////
+    // Appearance
+    width:400,                  // width of the popup
+    addonClasses: '',           // any additional classes to add to the popup
+    borderRadius: '4px',        // border radius for the popup
+    
+    
+    ///////////////////
+    //Behaviour
+    fadeTime: 400,              // fade in/out time
+    addCloseButton: true,       // Add a close button or not
+    closeOnOverlayClick: true,  // close modal on click of the overlay
+    showOverlay: true,          // show the overlay (required for click away)
+    
+});</code>
+            </section >
+            
+            
             <section class="stats" title="Stats:">
-                <table>
+                <table >
                     <tr>
                         <td>Files required for installation:</td>
-                        <td>1</td>
+                        <td>1 (jquery.jmodal.js)</td>
                     </tr>
                     <tr>
                         <td>Total Size:</td>
-                        <td>&lt;5kb minified, ~10kb raw</td>
+                        <td>~5kb minified, ~10kb raw</td>
                     </tr>
                     <tr>
                         <td>Notable Requirements:</td>
                         <td>jQuery</td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                    </tr>
                 </table>
             </section >
+        
+        <footer>&#169; <a href="http://www.tolansky.com" target="_new">Tolansky</a></footer>
         </main>
         
         <!-- Footer -->
-        <footer>&#169; <a href="http://www.tolansky.com" target="_new">Tolansky</a></footer>
+        
        
        
        
@@ -137,5 +169,14 @@ would have made any woman respect him.</p>
           
        </div> 
     
+    <div style="display:none" id="hiddenDivCustom">
+        Weird custom setup!
+        <br><br>
+        This demo just adds a user made class by adding:
+        <br>
+        <b>{addonClasses:'customClass'}</b>.<br><br>No close button here, so click away to close.
+        
+        <br><br><br><br><br><br>...just don't blame us for any bad design choices :-)
+    </div>
     </body>
 </html>

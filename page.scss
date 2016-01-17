@@ -10,7 +10,7 @@
 // Common setup
 /////////////////////////////////////////////////////////////
 
-html,body{width:100%; overflow:hidden;}
+
 
 body
 {
@@ -76,6 +76,10 @@ main
     vertical-align:middle;
     span
     {
+        user-select: none;
+        -webkit-user-select: none; /* Chrome/Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+ */
         height: 100%; 
         display: table-cell;
         vertical-align: middle;
@@ -86,9 +90,9 @@ main
 {
     $height:50px;
     height:$height;
-    
     span
     {
+        user-select: none;
         height: $height; 
         display: table-cell;
         vertical-align: middle;
@@ -101,7 +105,9 @@ main
 }
 
 
-code
+
+
+dcdode
 {
     display:block;
     background: #F9F9F9;
@@ -116,8 +122,14 @@ section
 {
     padding-top:10px;
     padding-bottom:15px;
-    border-bottom: 1px #CDCDCD solid;
+    border-top: 1px #CDCDCD solid;
 }
+
+main section:nth-child(1)
+{
+    border-top: 0px;
+}
+
 
 section:before
 {
@@ -128,19 +140,12 @@ section:before
 }
 footer
 {
-    position: relative;
-    
-    position:absolute;
+    margin-top:20px;
     bottom:5px;
     
+    //border-top: 1px #CDCDCD solid;
     
-    width:200px;
-    left:50%;
-    margin-left:-100px;
-    padding:10px;
-    border-top: 1px #CDCDCD solid;
-    
-    text-align:center;
+    text-align:right;
     font-family: 'Lato', sans-serif;
 
     font-size:12px;
@@ -156,15 +161,25 @@ footer
 
 .stats table
 {
-    
+    width:100%;
+    font-size:13px;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    tr:nth-child(even)
+    {
+        background: #efefef;
+    }
     tr td:nth-child(1)
     {
-        font-weight:bold;        
+        font-weight:bold;
+        min-width:200px;
     }
     
     tr td:nth-child(2)
     {
-        padding-left:10px;    
+        padding-left:10px;
+        width:100%;
     }
     
 }
@@ -174,5 +189,24 @@ footer
 
 .customClass
 {
-    background:red;
+    background:#16a085 !important;
+    color:white !important;
+    top:40% !important;
+    border-radius:100px !important;
+    text-align:center !important;
+    padding-bottom:200px !important;
+    
+    //Animation
+    animation-duration: 10s; 
+    animation-fill-mode: both;
+    transform-origin: top center; 
+    animation-name: swing; 
 }
+ @keyframes swing { 
+            20% { transform: rotate(15deg); } 
+            40% { transform: rotate(-10deg); } 
+            60% { transform: rotate(5deg); } 
+            80% { transform: rotate(-5deg); } 
+            100% { transform: rotate(3deg); } 
+         }
+         
