@@ -6,7 +6,7 @@ jModal is a small jQuery plugin for customisable modal popups, released freely u
   - Footprint ~5kb when minified
   - Accepts your own custom styles as required.
 
-For full details visit https://tolansky.github.com/jModal
+For full details visit https://tolansky.github.io/jModal
 
 
 ### Installation & Usage
